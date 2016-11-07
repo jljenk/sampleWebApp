@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<HTML>
+   <HEAD>
+      <TITLE>Sample Login</TITLE>
+   </HEAD>
+   <BODY>
+     <div id="login">
+		<form>
+			<label>username: </label><input  id="username" value="user" type="text"/>
+			<label>password: </label><input id="password" value="user" type="password"/>
+			<input type="submit"/>
+		</form>
+	 </div>
+	  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	  <script src="js/global.js"></script>
+	  <script src="js/login.js"></script>
+	  <script>
+		function success(response){
+			console.log(response);
+			if(response.error){
+				alert(response.error);
+			}else{
+				sessionStorage['accessToken'] = response.token;
+				window.location.href = "cards.html";
+			}
+		}
+		
+		function error(jqXHR, textStatus, errorThrown){
+			alert("error: please try again later");
+			console.log(textStatus);
+		}
+		
+		$( "#login" ).submit(function( event ) {
+		  event.preventDefault();
+		  var data = loginToJSON($("#username").val(), $("#password").val())
+		  makeAJAXCall(method.POST, rest.userLogin, data, success, error);
+		 
+		});
+		
+		
+	  </script>
+   </BODY>
+</HTML>

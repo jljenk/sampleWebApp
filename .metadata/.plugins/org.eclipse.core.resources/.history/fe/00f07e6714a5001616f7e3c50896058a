@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<HTML>
+   <HEAD>
+      <TITLE>Sample Login</TITLE>
+   </HEAD>
+   <BODY>
+     <div id="cards">
+		
+	 </div>
+	  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	  <script src="js/global.js"></script>
+	  <script src="js/login.js"></script>
+	  <script>
+		function success(response){
+			console.log(response);
+		}
+		
+		function error(jqXHR, textStatus, errorThrown){
+			alert("error: please try again later");
+			console.log(textStatus);
+		}
+		
+
+		
+		$(document).ready(function() {
+		  makeAJAXCall(method.GET, rest.allCards, null, success, error);
+		 
+		});
+		
+		
+	  </script>
+   </BODY>
+</HTML>

@@ -1,0 +1,7 @@
+profile = default
+environment = test
+cek_file = CEK_1471152885815.key
+cek_file_alg = AES
+mackey_file = MACKEY_1471152885810.key
+mackey_file_alg = AES
+dynamodbEndpoint = http://localhost:9000
